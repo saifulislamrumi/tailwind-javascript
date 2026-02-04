@@ -1,0 +1,1464 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Complete Tailwind javaScript</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: { colors: { primary: "#3b82f6", secondary: "#8b5cf6" } },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800"
+  >
+    <nav
+      class="sticky top-0 z-50 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl shadow-lg border-b border-gray-200 dark:border-gray-700"
+    >
+      <div class="container mx-auto px-4 max-w-7xl">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center text-white font-bold text-2xl"
+            >
+              TJ
+            </div>
+            <span
+              class="text-xl font-bold text-gray-900 dark:text-white hidden sm:block"
+              >Tailwind + JS</span
+            >
+          </div>
+          <div class="hidden lg:flex gap-4">
+            <a
+              href="#hero"
+              class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 rounded-lg"
+              >Home</a
+            >
+            <a
+              href="#javascript"
+              class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 rounded-lg"
+              >JavaScript</a
+            >
+            <a
+              href="#interactive"
+              class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 rounded-lg"
+              >Interactive</a
+            >
+            <a
+              href="#forms"
+              class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 rounded-lg"
+              >Forms</a
+            >
+          </div>
+          <div class="flex items-center gap-3">
+            <button
+              id="darkModeToggle"
+              class="p-2.5 bg-gray-200 dark:bg-gray-700 rounded-lg"
+            >
+              <span id="darkModeIcon">🌙</span>
+            </button>
+            <button
+              id="mobileMenuBtn"
+              class="lg:hidden p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-200 rounded-lg"
+            >
+              ☰
+            </button>
+          </div>
+        </div>
+        <div id="mobileMenu" class="hidden lg:hidden pb-4">
+          <a
+            href="#hero"
+            class="block px-4 py-2 text-gray-700 dark:text-gray-300"
+            >Home</a
+          >
+          <a
+            href="#javascript"
+            class="block px-4 py-2 text-gray-700 dark:text-gray-300"
+            >JavaScript</a
+          >
+          <a
+            href="#interactive"
+            class="block px-4 py-2 text-gray-700 dark:text-gray-300"
+            >Interactive</a
+          >
+          <a
+            href="#forms"
+            class="block px-4 py-2 text-gray-700 dark:text-gray-300"
+            >Forms</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="py-20 px-4">
+      <div class="container mx-auto max-w-7xl text-center">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-8"
+        >
+          <span>🔴</span>
+          <span id="liveVisitors" class="text-sm font-semibold"
+            >Loading...</span
+          >
+        </div>
+        <h1
+          class="text-5xl lg:text-7xl font-extrabold text-gray-900 dark:text-white mb-6"
+        >
+          Master
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600"
+            >Tailwind CSS</span
+          ><br />
+          <span
+            id="typingText"
+            class="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600"
+          ></span
+          ><span>|</span>
+        </h1>
+        <p
+          class="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto"
+        >
+          Practice Tailwind CSS and JavaScript together with interactive
+          examples
+        </p>
+        <button
+          id="scrollToJsBtn"
+          class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-xl shadow-lg"
+        >
+          Explore JavaScript →
+        </button>
+        <div class="flex justify-center gap-12 mt-12">
+          <div>
+            <div class="text-4xl font-bold text-gray-900 dark:text-white">
+              <span id="stat1">0</span>+
+            </div>
+            <div class="text-sm text-gray-600">Utilities</div>
+          </div>
+          <div>
+            <div class="text-4xl font-bold text-gray-900 dark:text-white">
+              <span id="stat2">0</span>+
+            </div>
+            <div class="text-sm text-gray-600">JS Concepts</div>
+          </div>
+          <div>
+            <div class="text-4xl font-bold text-gray-900 dark:text-white">
+              ∞
+            </div>
+            <div class="text-sm text-gray-600">Possibilities</div>
+          </div>
+        </div>
+        <button
+          id="clickableCard"
+          class="mt-12 w-64 h-48 mx-auto bg-gradient-to-br from-pink-400 to-pink-600 rounded-2xl shadow-2xl flex flex-col items-center justify-center text-white cursor-pointer"
+        >
+          <div class="text-6xl mb-2">💎</div>
+          <div class="text-sm font-semibold">Click me!</div>
+          <div class="text-xs mt-1">Clicks: <span id="clickCount">0</span></div>
+        </button>
+      </div>
+    </section>
+
+    <section id="javascript" class="py-20 px-4 bg-white dark:bg-gray-800">
+      <div class="container mx-auto max-w-7xl">
+        <h2
+          class="text-5xl font-bold text-center text-gray-900 dark:text-white mb-4"
+        >
+          JavaScript
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-orange-600"
+            >Fundamentals</span
+          >
+        </h2>
+        <p class="text-xl text-center text-gray-600 dark:text-gray-400 mb-16">
+          Practice core concepts with interactive examples
+        </p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div
+            class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2"
+            >
+              <span>🎯</span> DOM Manipulation
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-6">
+              Change text, styles, and attributes dynamically
+            </p>
+            <div
+              id="domTarget"
+              class="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-blue-900 dark:text-blue-100 font-semibold text-center mb-4"
+            >
+              Original Text
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <button
+                id="changeTextBtn"
+                class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg"
+              >
+                Change Text
+              </button>
+              <button
+                id="changeStyleBtn"
+                class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg"
+              >
+                Change Style
+              </button>
+              <button
+                id="addClassBtn"
+                class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg"
+              >
+                Add Class
+              </button>
+              <button
+                id="resetDomBtn"
+                class="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2"
+            >
+              <span>⚡</span> Event Listeners
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-6">
+              Interact with different event types
+            </p>
+            <div
+              id="eventLog"
+              class="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg h-32 overflow-y-auto text-sm font-mono text-gray-700 dark:text-gray-300 mb-4"
+            >
+              Event log...
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <button
+                id="clickEventBtn"
+                class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg"
+              >
+                Click Event
+              </button>
+              <button
+                id="dblClickEventBtn"
+                class="px-4 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-lg"
+              >
+                Double Click
+              </button>
+              <input
+                id="inputEvent"
+                type="text"
+                placeholder="Type here..."
+                class="col-span-2 px-4 py-2 bg-gray-50 dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white"
+              />
+              <button
+                id="clearLogBtn"
+                class="col-span-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg"
+              >
+                Clear Log
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2"
+            >
+              <span>📊</span> Array Methods
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-6">
+              Filter, map, and reduce operations
+            </p>
+            <div class="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg mb-4">
+              <div class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                Original Array:
+              </div>
+              <div class="font-mono text-gray-900 dark:text-white">
+                [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+              </div>
+            </div>
+            <div
+              id="arrayResult"
+              class="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-2 border-green-200 dark:border-green-800 mb-4"
+            >
+              <div class="text-sm text-green-700 dark:text-green-300 mb-2">
+                Result:
+              </div>
+              <div class="font-mono text-green-900 dark:text-green-100">
+                Click a button to see results
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <button
+                id="filterBtn"
+                class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm"
+              >
+                Filter (even)
+              </button>
+              <button
+                id="mapBtn"
+                class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-sm"
+              >
+                Map (×2)
+              </button>
+              <button
+                id="reduceBtn"
+                class="px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-lg text-sm"
+              >
+                Reduce (sum)
+              </button>
+              <button
+                id="findBtn"
+                class="px-4 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-lg text-sm"
+              >
+                Find (>5)
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2"
+            >
+              <span>🔄</span> Conditionals & Loops
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-6">
+              Decision making and iteration
+            </p>
+            <input
+              id="numberInput"
+              type="number"
+              placeholder="Enter a number"
+              class="w-full px-4 py-2 bg-gray-50 dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white mb-4"
+            />
+            <div
+              id="conditionalResult"
+              class="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg min-h-[100px] text-gray-900 dark:text-white mb-4"
+            >
+              Enter a number and click a button
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <button
+                id="checkEvenBtn"
+                class="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-sm"
+              >
+                Check Even/Odd
+              </button>
+              <button
+                id="factorialBtn"
+                class="px-4 py-2 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg text-sm"
+              >
+                Calculate Factorial
+              </button>
+              <button
+                id="fibonacciBtn"
+                class="col-span-2 px-4 py-2 bg-violet-600 hover:bg-violet-700 text-white rounded-lg text-sm"
+              >
+                Generate Fibonacci
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2"
+            >
+              <span>💾</span> Local Storage
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-6">
+              Persist data in browser storage
+            </p>
+            <input
+              id="storageKey"
+              type="text"
+              placeholder="Key"
+              class="w-full px-4 py-2 bg-gray-50 dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white mb-3"
+            />
+            <input
+              id="storageValue"
+              type="text"
+              placeholder="Value"
+              class="w-full px-4 py-2 bg-gray-50 dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white mb-3"
+            />
+            <div
+              id="storageDisplay"
+              class="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg text-gray-900 dark:text-white min-h-[60px] mb-3"
+            >
+              No data stored yet
+            </div>
+            <div class="grid grid-cols-3 gap-2">
+              <button
+                id="saveStorageBtn"
+                class="px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm"
+              >
+                Save
+              </button>
+              <button
+                id="loadStorageBtn"
+                class="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm"
+              >
+                Load
+              </button>
+              <button
+                id="clearStorageBtn"
+                class="px-3 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-sm"
+              >
+                Clear
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2"
+            >
+              <span>🎁</span> Object Manipulation
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-6">
+              Create, modify, and iterate objects
+            </p>
+            <div
+              id="objectDisplay"
+              class="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg font-mono text-sm text-gray-900 dark:text-white overflow-auto max-h-48 mb-4"
+            >
+              {}
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <button
+                id="createObjBtn"
+                class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-sm"
+              >
+                Create Object
+              </button>
+              <button
+                id="addPropBtn"
+                class="px-4 py-2 bg-lime-600 hover:bg-lime-700 text-white rounded-lg text-sm"
+              >
+                Add Property
+              </button>
+              <button
+                id="keysBtn"
+                class="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-lg text-sm"
+              >
+                Show Keys
+              </button>
+              <button
+                id="valuesBtn"
+                class="px-4 py-2 bg-fuchsia-600 hover:bg-fuchsia-700 text-white rounded-lg text-sm"
+              >
+                Show Values
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="interactive"
+      class="py-20 px-4 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800"
+    >
+      <div class="container mx-auto max-w-7xl">
+        <h2
+          class="text-5xl font-bold text-center text-gray-900 dark:text-white mb-4"
+        >
+          Interactive
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-red-600"
+            >Components</span
+          >
+        </h2>
+        <p class="text-xl text-center text-gray-600 dark:text-gray-400 mb-16">
+          Real-world UI components
+        </p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div
+            class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2"
+            >
+              <span>✅</span> Todo List
+            </h3>
+            <div class="flex gap-2 mb-4">
+              <input
+                id="todoInput"
+                type="text"
+                placeholder="Add a new task..."
+                class="flex-1 px-4 py-2 bg-gray-50 dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white"
+              />
+              <button
+                id="addTodoBtn"
+                class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg"
+              >
+                Add
+              </button>
+            </div>
+            <ul
+              id="todoList"
+              class="space-y-2 max-h-64 overflow-y-auto mb-4"
+            ></ul>
+            <div
+              class="flex justify-between items-center text-sm text-gray-600 dark:text-gray-400 pt-2 border-t border-gray-200 dark:border-gray-700"
+            >
+              <span id="todoCount">0 tasks</span>
+              <button
+                id="clearAllTodos"
+                class="text-red-600 hover:text-red-700"
+              >
+                Clear All
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2"
+            >
+              <span>📋</span> Accordion
+            </h3>
+            <div class="space-y-3">
+              <div
+                class="accordion-item border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden"
+              >
+                <button
+                  class="accordion-header w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 text-left font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 flex justify-between items-center"
+                >
+                  <span>What is Tailwind CSS?</span
+                  ><span class="accordion-icon">▼</span>
+                </button>
+                <div
+                  class="accordion-content hidden px-4 py-3 bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400"
+                >
+                  Tailwind CSS is a utility-first CSS framework that provides
+                  low-level utility classes to build custom designs without
+                  leaving your HTML.
+                </div>
+              </div>
+              <div
+                class="accordion-item border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden"
+              >
+                <button
+                  class="accordion-header w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 text-left font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 flex justify-between items-center"
+                >
+                  <span>Why use JavaScript?</span
+                  ><span class="accordion-icon">▼</span>
+                </button>
+                <div
+                  class="accordion-content hidden px-4 py-3 bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400"
+                >
+                  JavaScript makes web pages interactive by manipulating the
+                  DOM, handling events, and communicating with servers
+                  dynamically.
+                </div>
+              </div>
+              <div
+                class="accordion-item border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden"
+              >
+                <button
+                  class="accordion-header w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 text-left font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 flex justify-between items-center"
+                >
+                  <span>What is DOM manipulation?</span
+                  ><span class="accordion-icon">▼</span>
+                </button>
+                <div
+                  class="accordion-content hidden px-4 py-3 bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400"
+                >
+                  DOM manipulation is the process of using JavaScript to
+                  dynamically change the structure, style, and content of a web
+                  page.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2"
+            >
+              <span>🪟</span> Modal Dialog
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              Click the button to open a modal popup with overlay
+            </p>
+            <button
+              id="openModalBtn"
+              class="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold rounded-lg mb-3"
+            >
+              Open Modal
+            </button>
+            <div class="grid grid-cols-2 gap-3">
+              <button
+                id="successModalBtn"
+                class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm"
+              >
+                Success Modal
+              </button>
+              <button
+                id="errorModalBtn"
+                class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-sm"
+              >
+                Error Modal
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700"
+          >
+            <h3
+              class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2"
+            >
+              <span>🔢</span> Calculator
+            </h3>
+            <input
+              id="calcDisplay"
+              type="text"
+              readonly
+              value="0"
+              class="w-full px-4 py-6 bg-gray-50 dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 rounded-lg text-right text-3xl font-mono text-gray-900 dark:text-white mb-4"
+            />
+            <div class="grid grid-cols-4 gap-2">
+              <button
+                class="calc-btn px-4 py-4 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg font-bold text-gray-900 dark:text-white"
+                data-value="7"
+              >
+                7
+              </button>
+              <button
+                class="calc-btn px-4 py-4 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg font-bold text-gray-900 dark:text-white"
+                data-value="8"
+              >
+                8
+              </button>
+              <button
+                class="calc-btn px-4 py-4 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg font-bold text-gray-900 dark:text-white"
+                data-value="9"
+              >
+                9
+              </button>
+              <button
+                class="calc-btn px-4 py-4 bg-orange-600 hover:bg-orange-700 rounded-lg font-bold text-white"
+                data-value="/"
+              >
+                ÷
+              </button>
+              <button
+                class="calc-btn px-4 py-4 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg font-bold text-gray-900 dark:text-white"
+                data-value="4"
+              >
+                4
+              </button>
+              <button
+                class="calc-btn px-4 py-4 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg font-bold text-gray-900 dark:text-white"
+                data-value="5"
+              >
+                5
+              </button>
+              <button
+                class="calc-btn px-4 py-4 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg font-bold text-gray-900 dark:text-white"
+                data-value="6"
+              >
+                6
+              </button>
+              <button
+                class="calc-btn px-4 py-4 bg-orange-600 hover:bg-orange-700 rounded-lg font-bold text-white"
+                data-value="*"
+              >
+                ×
+              </button>
+              <button
+                class="calc-btn px-4 py-4 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg font-bold text-gray-900 dark:text-white"
+                data-value="1"
+              >
+                1
+              </button>
+              <button
+                class="calc-btn px-4 py-4 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg font-bold text-gray-900 dark:text-white"
+                data-value="2"
+              >
+                2
+              </button>
+              <button
+                class="calc-btn px-4 py-4 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg font-bold text-gray-900 dark:text-white"
+                data-value="3"
+              >
+                3
+              </button>
+              <button
+                class="calc-btn px-4 py-4 bg-orange-600 hover:bg-orange-700 rounded-lg font-bold text-white"
+                data-value="-"
+              >
+                −
+              </button>
+              <button
+                class="calc-btn px-4 py-4 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg font-bold text-gray-900 dark:text-white"
+                data-value="0"
+              >
+                0
+              </button>
+              <button
+                class="calc-btn px-4 py-4 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 rounded-lg font-bold text-gray-900 dark:text-white"
+                data-value="."
+              >
+                .
+              </button>
+              <button
+                id="calcClear"
+                class="px-4 py-4 bg-red-600 hover:bg-red-700 rounded-lg font-bold text-white"
+              >
+                C
+              </button>
+              <button
+                class="calc-btn px-4 py-4 bg-orange-600 hover:bg-orange-700 rounded-lg font-bold text-white"
+                data-value="+"
+              >
+                +
+              </button>
+              <button
+                id="calcEquals"
+                class="col-span-4 px-4 py-4 bg-blue-600 hover:bg-blue-700 rounded-lg font-bold text-white"
+              >
+                =
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="forms" class="py-20 px-4 bg-white dark:bg-gray-800">
+      <div class="container mx-auto max-w-4xl">
+        <h2
+          class="text-5xl font-bold text-center text-gray-900 dark:text-white mb-4"
+        >
+          Form
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600"
+            >Validation</span
+          >
+        </h2>
+        <p class="text-xl text-center text-gray-600 dark:text-gray-400 mb-16">
+          Interactive form with JavaScript validation
+        </p>
+
+        <div
+          class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-200 dark:border-gray-700"
+        >
+          <div class="text-center mb-10">
+            <div
+              class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl text-3xl mb-4"
+            >
+              📝
+            </div>
+            <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+              Registration Form
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400">
+              All fields are validated with JavaScript
+            </p>
+          </div>
+
+          <div class="space-y-6">
+            <div>
+              <label
+                class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2"
+                >Username <span class="text-red-500">*</span></label
+              >
+              <input
+                id="username"
+                type="text"
+                placeholder="Enter username (min 3 characters)"
+                class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white"
+              />
+              <p class="error-message hidden text-red-500 text-sm mt-1"></p>
+            </div>
+
+            <div>
+              <label
+                class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2"
+                >Email <span class="text-red-500">*</span></label
+              >
+              <input
+                id="email"
+                type="email"
+                placeholder="your.email@example.com"
+                class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white"
+              />
+              <p class="error-message hidden text-red-500 text-sm mt-1"></p>
+            </div>
+
+            <div>
+              <label
+                class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2"
+                >Password <span class="text-red-500">*</span></label
+              >
+              <input
+                id="password"
+                type="password"
+                placeholder="Min 8 characters, 1 uppercase, 1 number"
+                class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white"
+              />
+              <p class="error-message hidden text-red-500 text-sm mt-1"></p>
+            </div>
+
+            <div>
+              <label
+                class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2"
+                >Confirm Password <span class="text-red-500">*</span></label
+              >
+              <input
+                id="confirmPassword"
+                type="password"
+                placeholder="Re-enter your password"
+                class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white"
+              />
+              <p class="error-message hidden text-red-500 text-sm mt-1"></p>
+            </div>
+
+            <div>
+              <label
+                class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2"
+                >Age <span class="text-red-500">*</span></label
+              >
+              <input
+                id="age"
+                type="number"
+                placeholder="Must be 18 or older"
+                class="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white"
+              />
+              <p class="error-message hidden text-red-500 text-sm mt-1"></p>
+            </div>
+
+            <div
+              class="p-4 bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-200 dark:border-blue-800 rounded-xl"
+            >
+              <label class="flex items-start gap-3 cursor-pointer">
+                <input
+                  id="terms"
+                  type="checkbox"
+                  class="w-5 h-5 mt-0.5 rounded"
+                />
+                <span class="text-sm text-gray-700 dark:text-gray-300"
+                  >I agree to the Terms and Conditions and Privacy Policy
+                  <span class="text-red-500">*</span></span
+                >
+              </label>
+              <p
+                class="error-message hidden text-red-500 text-sm mt-1 ml-8"
+              ></p>
+            </div>
+
+            <div
+              id="successMessage"
+              class="hidden p-4 bg-green-50 dark:bg-green-900/20 border-2 border-green-500 rounded-xl"
+            >
+              <p
+                class="text-green-700 dark:text-green-300 font-semibold text-center"
+              >
+                ✅ Form submitted successfully!
+              </p>
+            </div>
+
+            <div class="flex gap-4 pt-4">
+              <button
+                id="submitFormBtn"
+                class="flex-1 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-xl shadow-lg"
+              >
+                Submit Form
+              </button>
+              <button
+                id="resetFormBtn"
+                class="px-8 py-4 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-semibold rounded-xl"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div
+      id="modalOverlay"
+      class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+    >
+      <div
+        class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-8"
+      >
+        <div class="text-center">
+          <div id="modalIcon" class="text-6xl mb-4">ℹ️</div>
+          <h3
+            id="modalTitle"
+            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+          >
+            Modal Title
+          </h3>
+          <p id="modalText" class="text-gray-600 dark:text-gray-400 mb-6">
+            This is a modal dialog box.
+          </p>
+          <button
+            id="closeModalBtn"
+            class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+    <button
+      id="scrollTopBtn"
+      class="hidden fixed bottom-8 right-8 w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg flex items-center justify-center text-2xl z-40"
+    >
+      ↑
+    </button>
+
+    <script>
+
+  
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+      document.querySelectorAll("#mobileMenu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      const typingText = document.getElementById("typingText");
+      typingText.textContent = "& JavaScript + Interactivity";
+
+      const liveVisitors = document.getElementById("liveVisitors");
+      let visitors = Math.floor(Math.random() * 50) + 150;
+      liveVisitors.textContent = `${visitors} users online now`; 
+      document.getElementById("stat1").textContent = 100;
+      document.getElementById("stat2").textContent = 25;
+
+      const clickableCard = document.getElementById("clickableCard");
+      const clickCount = document.getElementById("clickCount");
+      let clicks = 0;
+      clickableCard.addEventListener("click", () => {
+        clicks++;
+        clickCount.textContent = clicks;
+      });
+
+      document.getElementById("scrollToJsBtn").addEventListener("click", () => {
+        document
+          .getElementById("javascript")
+          .scrollIntoView({ behavior: "smooth" });
+      });
+
+      const domTarget = document.getElementById("domTarget");
+      document.getElementById("changeTextBtn").addEventListener("click", () => {
+        domTarget.textContent = "Text Changed! 🎉";
+      });
+      document
+        .getElementById("changeStyleBtn")
+        .addEventListener("click", () => {
+          domTarget.style.background =
+            "linear-gradient(to right, #8b5cf6, #ec4899)";
+          domTarget.style.color = "white";
+          domTarget.style.transform = "rotate(2deg)";
+        });
+      document.getElementById("addClassBtn").addEventListener("click", () => {
+        domTarget.classList.toggle("shadow-2xl");
+      });
+      document.getElementById("resetDomBtn").addEventListener("click", () => {
+        domTarget.textContent = "Original Text";
+        domTarget.style.cssText = "";
+        domTarget.className =
+          "p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-blue-900 dark:text-blue-100 font-semibold text-center";
+      });
+
+      const eventLog = document.getElementById("eventLog");
+      function addToLog(message) {
+        const timestamp = new Date().toLocaleTimeString();
+        eventLog.innerHTML += `[${timestamp}] ${message}<br>`;
+        eventLog.scrollTop = eventLog.scrollHeight;
+      }
+      document.getElementById("clickEventBtn").addEventListener("click", () => {
+        addToLog("Click event triggered! 🖱️");
+      });
+      document
+        .getElementById("dblClickEventBtn")
+        .addEventListener("dblclick", () => {
+          addToLog("Double-click event triggered! 👆👆");
+        });
+      document.getElementById("inputEvent").addEventListener("input", (e) => {
+        addToLog(`Input: "${e.target.value}"`);
+      });
+      document.getElementById("clearLogBtn").addEventListener("click", () => {
+        eventLog.innerHTML = "Event log cleared<br>";
+      });
+      const arrayResult = document.getElementById("arrayResult");
+      const originalArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      function displayResult(title, result) {
+        arrayResult.innerHTML = `<div class="text-sm text-green-700 dark:text-green-300 mb-2">${title}</div><div class="font-mono text-green-900 dark:text-green-100">${JSON.stringify(result)}</div>`;
+      }
+      document.getElementById("filterBtn").addEventListener("click", () => {
+        displayResult(
+          "Filter (even numbers):",
+          originalArray.filter((num) => num % 2 === 0),
+        );
+      });
+      document.getElementById("mapBtn").addEventListener("click", () => {
+        displayResult(
+          "Map (multiply by 2):",
+          originalArray.map((num) => num * 2),
+        );
+      });
+      document.getElementById("reduceBtn").addEventListener("click", () => {
+        displayResult(
+          "Reduce (sum of all):",
+          originalArray.reduce((sum, num) => sum + num, 0),
+        );
+      });
+      document.getElementById("findBtn").addEventListener("click", () => {
+        displayResult(
+          "Find (first number > 5):",
+          originalArray.find((num) => num > 5),
+        );
+      });
+
+      const conditionalResult = document.getElementById("conditionalResult");
+      document.getElementById("checkEvenBtn").addEventListener("click", () => {
+        const num = parseInt(document.getElementById("numberInput").value);
+        if (isNaN(num)) {
+          conditionalResult.innerHTML =
+            '<p class="text-red-600">Please enter a valid number!</p>';
+          return;
+        }
+        const result = num % 2 === 0 ? "even" : "odd";
+        conditionalResult.innerHTML = `<p class="text-lg font-semibold">Number: ${num}</p><p class="text-2xl font-bold ${num % 2 === 0 ? "text-green-600" : "text-purple-600"}">${num} is ${result}!</p>`;
+      });
+      document.getElementById("factorialBtn").addEventListener("click", () => {
+        const num = parseInt(document.getElementById("numberInput").value);
+        if (isNaN(num) || num < 0) {
+          conditionalResult.innerHTML =
+            '<p class="text-red-600">Please enter a valid positive number!</p>';
+          return;
+        }
+        let factorial = 1;
+        for (let i = 2; i <= num; i++) {
+          factorial *= i;
+        }
+        conditionalResult.innerHTML = `<p class="text-lg font-semibold">Factorial of ${num}:</p><p class="text-3xl font-bold text-blue-600">${factorial.toLocaleString()}</p>`;
+      });
+      document.getElementById("fibonacciBtn").addEventListener("click", () => {
+        const num = parseInt(document.getElementById("numberInput").value);
+        if (isNaN(num) || num < 1 || num > 20) {
+          conditionalResult.innerHTML =
+            '<p class="text-red-600">Please enter a number between 1 and 20!</p>';
+          return;
+        }
+        const fib = [0, 1];
+        for (let i = 2; i < num; i++) {
+          fib[i] = fib[i - 1] + fib[i - 2];
+        }
+        conditionalResult.innerHTML = `<p class="text-lg font-semibold">First ${num} Fibonacci numbers:</p><p class="text-sm font-mono text-orange-600">[${fib.slice(0, num).join(", ")}]</p>`;
+      });
+      const objectDisplay = document.getElementById("objectDisplay");
+      let sampleObject = {};
+      function displayObject(obj) {
+        objectDisplay.textContent = JSON.stringify(obj, null, 2);
+      }
+      document.getElementById("createObjBtn").addEventListener("click", () => {
+        sampleObject = {
+          name: "John Doe",
+          age: 25,
+          city: "New York",
+          skills: ["JavaScript", "React", "Node.js"],
+        };
+        displayObject(sampleObject);
+      });
+      document.getElementById("addPropBtn").addEventListener("click", () => {
+        sampleObject.newProperty = "Added dynamically!";
+        sampleObject.timestamp = new Date().toLocaleTimeString();
+        displayObject(sampleObject);
+      });
+      document.getElementById("keysBtn").addEventListener("click", () => {
+        const keys = Object.keys(sampleObject);
+        objectDisplay.textContent = `Keys: [${keys.join(", ")}]`;
+      });
+      document.getElementById("valuesBtn").addEventListener("click", () => {
+        const values = Object.values(sampleObject);
+        objectDisplay.textContent = `Values: ${JSON.stringify(values, null, 2)}`;
+      });
+
+      // Local Storage
+      const storageDisplay = document.getElementById("storageDisplay");
+      document
+        .getElementById("saveStorageBtn")
+        .addEventListener("click", () => {
+          const key = document.getElementById("storageKey").value;
+          const value = document.getElementById("storageValue").value;
+          if (!key || !value) {
+            storageDisplay.innerHTML =
+              '<p class="text-red-600">Please fill in both key and value!</p>';
+            return;
+          }
+          localStorage.setItem(key, value);
+          storageDisplay.innerHTML = `<p class="text-green-600 font-semibold">✅ Saved: ${key} = "${value}"</p>`;
+        });
+      document
+        .getElementById("loadStorageBtn")
+        .addEventListener("click", () => {
+          const key = document.getElementById("storageKey").value;
+          if (!key) {
+            storageDisplay.innerHTML =
+              '<p class="text-red-600">Please enter a key!</p>';
+            return;
+          }
+          const value = localStorage.getItem(key);
+          if (value) {
+            storageDisplay.innerHTML = `<p class="text-blue-600 font-semibold">📖 Loaded: ${key} = "${value}"</p>`;
+            document.getElementById("storageValue").value = value;
+          } else {
+            storageDisplay.innerHTML = `<p class="text-orange-600">⚠️ No data found for key: ${key}</p>`;
+          }
+        });
+      document
+        .getElementById("clearStorageBtn")
+        .addEventListener("click", () => {
+          const key = document.getElementById("storageKey").value;
+          if (key) {
+            localStorage.removeItem(key);
+            storageDisplay.innerHTML = `<p class="text-red-600 font-semibold">🗑️ Cleared: ${key}</p>`;
+          } else {
+            localStorage.clear();
+            storageDisplay.innerHTML =
+              '<p class="text-red-600 font-semibold">🗑️ All storage cleared!</p>';
+          }
+          document.getElementById("storageKey").value = "";
+          document.getElementById("storageValue").value = "";
+        });
+
+      // Todo List
+      const todoInput = document.getElementById("todoInput");
+      const todoList = document.getElementById("todoList");
+      const todoCount = document.getElementById("todoCount");
+      let todos = JSON.parse(localStorage.getItem("todos")) || [];
+      function renderTodos() {
+        todoList.innerHTML = "";
+        todos.forEach((todo, index) => {
+          const li = document.createElement("li");
+          li.className = `flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg ${todo.completed ? "opacity-60" : ""}`;
+          li.innerHTML = `<label class="flex items-center gap-3 flex-1 cursor-pointer"><input type="checkbox" ${todo.completed ? "checked" : ""} class="w-5 h-5 rounded" onchange="toggleTodo(${index})"><span class="${todo.completed ? "line-through text-gray-500" : "text-gray-900 dark:text-white"}">${todo.text}</span></label><button onclick="deleteTodo(${index})" class="text-red-600 hover:text-red-700 text-xl">🗑️</button>`;
+          todoList.appendChild(li);
+        });
+        todoCount.textContent = `${todos.length} task${todos.length !== 1 ? "s" : ""}`;
+        localStorage.setItem("todos", JSON.stringify(todos));
+      }
+      window.toggleTodo = (index) => {
+        todos[index].completed = !todos[index].completed;
+        renderTodos();
+      };
+      window.deleteTodo = (index) => {
+        todos.splice(index, 1);
+        renderTodos();
+      };
+      document.getElementById("addTodoBtn").addEventListener("click", () => {
+        const text = todoInput.value.trim();
+        if (!text) return;
+        todos.push({ text, completed: false });
+        todoInput.value = "";
+        renderTodos();
+      });
+      todoInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          document.getElementById("addTodoBtn").click();
+        }
+      });
+      document.getElementById("clearAllTodos").addEventListener("click", () => {
+        if (confirm("Clear all todos?")) {
+          todos = [];
+          renderTodos();
+        }
+      });
+      renderTodos();
+
+      document.querySelectorAll(".accordion-header").forEach((button) => {
+        button.addEventListener("click", () => {
+          const content = button.nextElementSibling;
+          const icon = button.querySelector(".accordion-icon");
+          document.querySelectorAll(".accordion-content").forEach((item) => {
+            if (item !== content) {
+              item.classList.add("hidden");
+              item.previousElementSibling.querySelector(
+                ".accordion-icon",
+              ).textContent = "▼";
+            }
+          });
+          content.classList.toggle("hidden");
+          icon.textContent = content.classList.contains("hidden") ? "▼" : "▲";
+        });
+      });
+
+      // Modal
+      const modalOverlay = document.getElementById("modalOverlay");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalText = document.getElementById("modalText");
+      const modalIcon = document.getElementById("modalIcon");
+      function showModal(title, text, icon = "ℹ️") {
+        modalTitle.textContent = title;
+        modalText.textContent = text;
+        modalIcon.textContent = icon;
+        modalOverlay.classList.remove("hidden");
+      }
+      function closeModal() {
+        modalOverlay.classList.add("hidden");
+      }
+      document.getElementById("openModalBtn").addEventListener("click", () => {
+        showModal(
+          "Welcome!",
+          "This is a modal dialog created with JavaScript and Tailwind CSS.",
+          "👋",
+        );
+      });
+      document
+        .getElementById("successModalBtn")
+        .addEventListener("click", () => {
+          showModal(
+            "Success!",
+            "Your action was completed successfully.",
+            "✅",
+          );
+        });
+      document.getElementById("errorModalBtn").addEventListener("click", () => {
+        showModal("Error!", "Something went wrong. Please try again.", "❌");
+      });
+      document
+        .getElementById("closeModalBtn")
+        .addEventListener("click", closeModal);
+      modalOverlay.addEventListener("click", (e) => {
+        if (e.target === modalOverlay) closeModal();
+      });
+
+      let calcCurrent = "0",
+        calcPrevious = null,
+        calcOperation = null;
+      function updateCalcDisplay() {
+        document.getElementById("calcDisplay").value = calcCurrent;
+      }
+      document.querySelectorAll(".calc-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const value = btn.dataset.value;
+          if (["+", "-", "*", "/"].includes(value)) {
+            calcPrevious = calcCurrent;
+            calcOperation = value;
+            calcCurrent = "0";
+          } else if (value === ".") {
+            if (!calcCurrent.includes(".")) calcCurrent += ".";
+          } else {
+            calcCurrent = calcCurrent === "0" ? value : calcCurrent + value;
+          }
+          updateCalcDisplay();
+        });
+      });
+      document.getElementById("calcEquals").addEventListener("click", () => {
+  if (calcPrevious !== null && calcOperation !== null) {
+    const prev = parseFloat(calcPrevious);
+    const curr = parseFloat(calcCurrent);
+    let result = 0;
+
+    if (calcOperation === "+") {
+      result = prev + curr;
+    } else if (calcOperation === "-") {
+      result = prev - curr;
+    } else if (calcOperation === "*") {
+      result = prev * curr;
+    } else if (calcOperation === "/") {
+      result = prev / curr;
+    }
+    calcCurrent = String(result);
+    calcPrevious = null;
+    calcOperation = null;
+    updateCalcDisplay();
+  }
+});
+      document.getElementById("calcClear").addEventListener("click", () => {
+        calcCurrent = "0";
+        calcPrevious = null;
+        calcOperation = null;
+        updateCalcDisplay();
+      });
+
+  
+      const formElements = {
+        username: document.getElementById("username"),
+        email: document.getElementById("email"),
+        password: document.getElementById("password"),
+        confirmPassword: document.getElementById("confirmPassword"),
+        age: document.getElementById("age"),
+        terms: document.getElementById("terms"),
+      };
+      function showError(input, message) {
+        const errorElement =
+          input.parentElement.querySelector(".error-message");
+        errorElement.textContent = message;
+        errorElement.classList.remove("hidden");
+        input.classList.add("border-red-500");
+        input.classList.remove("border-green-500");
+      }
+      function showSuccess(input) {
+        const errorElement =
+          input.parentElement.querySelector(".error-message");
+        errorElement.classList.add("hidden");
+        input.classList.remove("border-red-500");
+        input.classList.add("border-green-500");
+      }
+      function validateUsername() {
+        const value = formElements.username.value.trim();
+        if (value.length < 3) {
+          showError(
+            formElements.username,
+            "Username must be at least 3 characters",
+          );
+          return false;
+        }
+        showSuccess(formElements.username);
+        return true;
+      }
+      function validateEmail() {
+        const value = formElements.email.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+          showError(formElements.email, "Please enter a valid email address");
+          return false;
+        }
+        showSuccess(formElements.email);
+        return true;
+      }
+      function validatePassword() {
+        const value = formElements.password.value;
+        const hasUppercase = /[A-Z]/.test(value);
+        const hasNumber = /[0-9]/.test(value);
+        if (value.length < 8) {
+          showError(
+            formElements.password,
+            "Password must be at least 8 characters",
+          );
+          return false;
+        }
+        if (!hasUppercase) {
+          showError(
+            formElements.password,
+            "Password must contain at least one uppercase letter",
+          );
+          return false;
+        }
+        if (!hasNumber) {
+          showError(
+            formElements.password,
+            "Password must contain at least one number",
+          );
+          return false;
+        }
+        showSuccess(formElements.password);
+        return true;
+      }
+      function validateConfirmPassword() {
+        const password = formElements.password.value;
+        const confirmPassword = formElements.confirmPassword.value;
+        if (password !== confirmPassword) {
+          showError(formElements.confirmPassword, "Passwords do not match");
+          return false;
+        }
+        showSuccess(formElements.confirmPassword);
+        return true;
+      }
+      function validateAge() {
+        const value = parseInt(formElements.age.value);
+        if (isNaN(value) || value < 18) {
+          showError(formElements.age, "You must be at least 18 years old");
+          return false;
+        }
+        showSuccess(formElements.age);
+        return true;
+      }
+      function validateTerms() {
+        const errorElement =
+          formElements.terms.parentElement.parentElement.querySelector(
+            ".error-message",
+          );
+        if (!formElements.terms.checked) {
+          errorElement.textContent =
+            "You must agree to the terms and conditions";
+          errorElement.classList.remove("hidden");
+          return false;
+        }
+        errorElement.classList.add("hidden");
+        return true;
+      }
+      formElements.username.addEventListener("blur", validateUsername);
+      formElements.email.addEventListener("blur", validateEmail);
+      formElements.password.addEventListener("blur", validatePassword);
+      formElements.confirmPassword.addEventListener(
+        "blur",
+        validateConfirmPassword,
+      );
+      formElements.age.addEventListener("blur", validateAge);
+      document
+        .getElementById("submitFormBtn")
+        .addEventListener("click", (e) => {
+          e.preventDefault();
+          const isValid =
+            validateUsername() &&
+            validateEmail() &&
+            validatePassword() &&
+            validateConfirmPassword() &&
+            validateAge() &&
+            validateTerms();
+          if (isValid) {
+            document.getElementById("successMessage").classList.remove("hidden");
+          }
+        });
+      document.getElementById("resetFormBtn").addEventListener("click", () => {
+        Object.values(formElements).forEach((input) => {
+          if (input.type === "checkbox") {
+            input.checked = false;
+          } else {
+            input.value = "";
+          }
+          input.classList.remove("border-red-500", "border-green-500");
+          const errorElement =
+            input.parentElement.querySelector(".error-message") ||
+            input.parentElement.parentElement.querySelector(".error-message");
+          if (errorElement) errorElement.classList.add("hidden");
+        });
+        document.getElementById("successMessage").classList.add("hidden");
+      });
+
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          scrollTopBtn.classList.remove("hidden");
+        } else {
+          scrollTopBtn.classList.add("hidden");
+        }
+      });
+      scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+     
+    </script>
+  </body>
+</html>
